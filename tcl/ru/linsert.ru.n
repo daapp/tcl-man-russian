@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: linsert.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH linsert n 8.2 Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+linsert \- Включает элементы в список
+.SH SYNOPSIS
+\fBlinsert \fIсписок индекс элемент\fR ?\fIэлемент элемент ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда создаёт новый список из \fIсписка\fR вставляя указанные
+аргументы перед элементом с указанным \fIиндекс\fRом из \fIсписка\fRа.
+Каждый аргумент \fIэлемент\fR станет отдельным элементом нового
+списка.  Если значение \fIиндекса\fR меньше или равно нулю, то новые
+элементы будут вставлены в начало списка. Если значение \fIиндекса\fR
+равно \fBend\fR ли больше или равно количеству элементов списка, то
+новые элементы будут добавлены в конец списка. \fIИндекс\fR
+\fBend\-\fIцелоеЧисло\fR указывает смещение относительно конца списка.
+
+.SH "SEE ALSO"
+.VS 8.4
+list(n), lappend(n), lindex(n), llength(n), lsearch(n), 
+lset(n), lsort(n), lrange(n), lreplace(n)
+.VE
+
+.SH KEYWORDS
+элемент, включить, список, element, insert, list

@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1993-1994 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: continue.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH continue n "" Tcl "Tcl Встроенные команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+continue \- Переход к следующей итерации цикла
+.SH SYNOPSIS
+\fBcontinue\fR
+.BE
+
+.SH DESCRIPTION
+.PP
+Данная команда обычно вызывается из тела цикла, такого, как \fBfor\fR
+или \fBforeach\fR или \fBwhile\fR. Команда возвращает код
+TCL_CONTINUE, в результате чего происходит завершение выполнения
+текущей итерации цикла, содержащего команду \fBcontinue\fR. Выполнение
+программы продолжается со следующей итерации цикла.
+Обработка кода TCL_CONTINUE может происходить также в некоторых других
+ситуациях - при выполнении команды \fBcatch\fR и the outermost scripts of procedure
+bodies.
+
+.SH "SEE ALSO"
+break(n), for(n), foreach(n), while(n)
+
+.SH KEYWORDS
+продолжать, итерация, цикл, continue, iteration, loop

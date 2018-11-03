@@ -1,0 +1,63 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: error.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH error n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+error \- Вызывает ошибку
+.SH SYNOPSIS
+\fBerror \fIсообщение\fR ?\fIсведения\fR? ?\fIкод\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Возвращает код TCL_ERROR, который означает, что интерпретация команды
+будет прервана.
+'\" Returns a TCL_ERROR code, which causes command interpretation to be
+'\" unwound.
+\fIСообщение\fR - это строка, возвращаемая приложению, и указывающая
+причину ошибки.
+.PP
+Если задан аргумент \fIсведения\fR и он содержит не пустое значение,
+то значение аргумента \fIсведения\fR присваивается глобальной
+переменной \fBerrorInfo\fR. \fBerrorInfo\fR используется для
+слежения за стэком, чтобы в случае возникновения ошибки можно было
+определить, в какой команде произошла ошибка, включая вложенные уровни
+вызова команды. Если указан аргумент \fIсведения\fR, то значение
+аргумента присваивается переменной \fBerrorInfo\fR и информация об
+уровне вложенности команды не будет добавлена в интерпретатор Tcl.
+Другими словами информация о команде, вызвавшей \fBerror\fR не
+будет помещена в переменную \fBerrorInfo\fR; вместо этого будет
+значение аргумента \fIсведения\fR. Эту особенность команды \fBerror\fR
+полезно применять в сочетании c командой \fBcatch\fR: если
+перехваченная ошибка не может быть успешно обработана, то значение
+аргумента \fIсведения\fR может быть использовано для выдачи сообщения
+о реальном месте ошибки, а не о месте вызова команды \fBerror\fR:
+.CS
+\fBcatch {...} errMsg
+set savedInfo $errorInfo
+\&...
+error $errMsg $savedInfo\fR
+.CE
+.PP
+Если задан аргумент \fIкод\fR, то его значение будет сохранено в
+глобальной переменной \fBerrorCode\fR. Эта переменная предназначена
+для хранения машинного описания ошибки в случаях, когда это описание
+доступно. Страница руководства \fBtclvars\fR содержит описание
+формата, свойственного для этой переменной.  Если аргумент \fIкод\fR
+не указан, то интерпретатор Tcl присваивает переменной \fBerrorCode\fR
+значение ``NONE'' в процессе обработки ошибки, сгенерированной командой.
+
+.SH "SEE ALSO"
+catch(n), tclvars(n)
+
+.SH KEYWORDS
+ошибка, error, errorCode, errorInfo

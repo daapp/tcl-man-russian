@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: lappend.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH lappend n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+lappend \- Дополняет переменную элементами списка
+.SH SYNOPSIS
+\fBlappend \fIимяПеременной\fR ?\fIзначение значение значение ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда рассматривает указанную переменную как список, и добавляет
+каждый из аргументов \fIзначение\fR в этот список как отдельный
+элемент через пробел. Если переменная с указанным именем не
+существует, то она создаётся как список с заданными значениями.
+Команда \fBlappend\fR аналогична команде \fBappend\fR, за исключением
+того, что \fIзначения\fR добавляются как элементы списка, а не как
+простой текст.
+Эта команда позволяет эффективно создавать большие списки. Например, 
+команда ``\fBlappend a $b\fR'' намного эффективнее, чем 
+``\fBset a [concat $a [list $b]]\fR'' при длинных значениях \fB$a\fR.
+
+.SH "SEE ALSO"
+list(n), lindex(n), linsert(n), llength(n), 
+.VS 8.4
+lset(n)
+.VE
+lsort(n), lrange(n)
+
+.SH KEYWORDS
+присоединять, элемент список, переменная, append, element, list, variable

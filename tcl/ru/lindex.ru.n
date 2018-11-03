@@ -1,0 +1,91 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 by Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: lindex.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH lindex n 8.4 Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+lindex \- Возвращает элемент списка
+.SH SYNOPSIS
+\fBlindex \fIсписок ?индекс...?\fR
+.BE
+.SH DESCRIPTION
+.PP
+.VS 8.4
+Команда \fBlindex\fR принимает параметр \fIсписок\fR, который
+рассматривается как Tcl список. Команда также принимает нуль или более
+\fIиндексов\fR этого списка. Индексы могут быть указаны раздельно или
+сгруппированы в Tcl список и представлять собой один аргумент.
+.PP
+Если индексы не указаны, то команда принимает форму:
+.CS
+lindex список
+.CE
+или
+.CS
+lindex список {}
+.CE
+В этом случае значение, возвращаемое командой \fBlindex\fR является
+значением параметра \fIсписок\fR.
+.PP
+Когда указан единственный индекс, команда \fBlindex\fR рассматривает
+\fIсписок\fR как Tcl список и возвращает элемент с указанным индексом
+(первый элемента списка имеет индекс 0).
+Во время извлечения элемента списка команда \fBlindex\fR соблюдает
+правила интерпретатора Tcl относительно фигурных скобок, двойных
+кавычек и обратного слэша, но подстановки переменных и команд не
+производятся. 
+Если \fIиндекс\fR меньше нуля или равен количеству элементов списка
+или больше этого количества, то результатом команды \fBlindex\fR будет
+пустая строка.
+Значение аргумента \fIиндекс\fR равное \fBend\fR указывает на
+последний элемент списка, значение \fBend\-\fIцелоеЧисло\fR указывает
+на последний элемент списка минус заданное числом смещение,
+т.е. отсчёт происходит с конца списка.
+.PP
+.VS 8.4
+Если указаны дополнительные индексы, то они используются для выбора
+элемента из вложенных списков. Команда 
+.CS
+lindex $a 1 2 3
+.CE
+или
+.CS
+lindex $a {1 2 3}
+.CE
+аналогичны следующей конструкции
+.CS
+lindex [lindex [lindex $a 1] 2] 3
+.CE
+.SH EXAMPLES
+.CS
+lindex {a b c}  => a b c
+lindex {a b c} {} => a b c
+lindex {a b c} 0 => a
+lindex {a b c} 2 => c
+lindex {a b c} end => c
+lindex {a b c} end-1 => b
+lindex {{a b c} {d e f} {g h i}} 2 1 => h
+lindex {{a b c} {d e f} {g h i}} {2 1} => h
+lindex {{{a b} {c d}} {{e f} {g h}}} 1 1 0 => g
+lindex {{{a b} {c d}} {{e f} {g h}}} {1 1 0} => g
+.CE
+.VE
+.SH "SEE ALSO"
+list(n), lappend(n), linsert(n), llength(n), lsearch(n), 
+.VS 8.4
+lset(n),
+.VE
+lsort(n),
+lrange(n), lreplace(n)
+
+.SH KEYWORDS
+элемент, индекс, список, element, index, list

@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: join.ru.n,v 1.1 2003/10/17 18:58:02 alex Exp $
+'\" 
+.so man.macros
+.TH join n "" Tcl "Tcl Built-In Commands"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+join \- Создаёт строку соединяя элементы списка
+.SH SYNOPSIS
+\fBjoin \fIсписок \fR?\fIстрокаСоединитель\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Аргумент \fIсписок\fR должен быть Tcl списком. Эта команда возвращает
+строку, сформированную из элементов списка. Между элементами списка
+вставляется \fIстрокаСоединитель\fR, которая по умолчанию равна
+пробелу.
+
+.SH "SEE ALSO"
+list(n), lappend(n)
+
+.SH KEYWORDS
+элемент, объединить, список, разделитель, element, join, list, separator

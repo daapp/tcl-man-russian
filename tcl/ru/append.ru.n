@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" CVS: @(#) $Id: append.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH append n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+append \- Прибавляет к переменной
+.SH SYNOPSIS
+\fBappend \fIимяПеременной \fR?\fIзначение значение значение ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Прибавляет все аргументы \fIзначение\fR к текущему значению переменной
+\fIимяПеременной\fR.  Если \fIимяПеременной\fR не существует,
+то она будет создана и её значение будет равно соединению всех
+аргументов \fIзначение\fR.
+В результате выполнения этой команды переменной \fIимяПеременной\fR
+присваивается новое значение.
+Эта команда предоставляет эффективный способ постепенного наращивания
+длинных значений переменных.
+Например, конструкция ``\fBappend a $b\fR'' гораздо более эффективна, чем 
+``\fBset a $a$b\fR'', если переменная \fB$a\fR имеет длинное значение.
+
+.SH "SEE ALSO"
+concat(n), lappend(n)
+
+.SH KEYWORDS
+прибавлять, переменная, append, variable

@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: pid.ru.n,v 1.3 2004/02/28 23:34:47 alex Exp $
+'\" 
+.so man.macros
+.TH pid n 7.0 Tcl "Tcl Built-In Commands"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+pid \- Возвращает идентификаторы процессов
+.SH SYNOPSIS
+\fBpid \fR?\fIидентификаторФайла\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Если указан аргумент \fIидентификаторФайла\fR, то  он обычно указывает
+на конвейер команд, созданный с помощью команды \fBopen\fR.
+В этом случае команда \fBpid\fR возвращает список, элементами которого
+являются идентификаторы процессов, задействованных в конвейере, в
+указанном порядке.
+Список будет пустым, если \fIидентификаторФайла\fR указывает не на
+конвейер команд, а на открытый файл.
+Если аргумент \fIидентификаторФайла\fR не указан, то возвращается
+идентификатор текущего процесса.
+Все идентификаторы процессов возвращаются в виде десятичных чисел,
+
+.SH "SEE ALSO"
+exec(n), open(n)
+
+.SH KEYWORDS
+файл, конвейер, идентификатор процесса
+file, pipeline, process identifier

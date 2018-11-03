@@ -1,0 +1,49 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: split.ru.n,v 1.3 2004/07/24 20:53:10 alex Exp $
+'\" 
+.so man.macros
+.TH split n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+split \- Разделяет строку на части, из которых создаёт Tcl список
+.SH SYNOPSIS
+\fBsplit \fIстрока \fR?\fIсимволыРазделители\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Возвращает список, полученный разделением \fIстроки\fR на
+части. Граница деления указывается с помощью аргумента
+\fIсимволыРазделители\fR. Каждый элемент полученного списка будет
+состоять из символов \fIстроки\fR находящихся между
+символами,указанными в качестве разделителей. Список будет содержать
+пустой элемент, если в \fIстроке\fR встречаются подряд символы разделители.
+Returns a list created by splitting \fIstring\fR at each character,
+или, если первый или последний символы \fIстроки\fR являются
+разделителями. Если аргумент \fIсимволыРазделители\fR - пустая строка,
+то каждый элемент \fIстроки\fR будет являться отдельным элементом
+списка. По умолчанию в качестве разделителей используются стандартные
+пробельные символы.
+Например:
+.CS
+\fBsplit "comp.unix.misc" .\fR
+.CE
+вернёт \fB"comp unix misc"\fR, а
+.CS
+\fBsplit значение "Hello world" {}\fR
+.CE
+вернёт значение\fB"H e l l o { } w o r l d"\fR.
+
+.SH "SEE ALSO"
+join(n), list(n), string(n)
+
+.SH KEYWORDS
+список, разделить, строка, 
+list, split, string

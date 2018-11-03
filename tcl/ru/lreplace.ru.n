@@ -1,0 +1,54 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: lreplace.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH lreplace n 7.4 Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+lreplace \- Заменяет элементы списка новыми элементами
+.SH SYNOPSIS
+\fBlreplace \fIсписок первый последний\fR ?\fIэлемент элемент ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Команда \fBlreplace\fR возвращает новый список, образованный заменой
+одного или более элементов \fIсписка\fR новыми значениями.
+Аргументы \fIпервый\fR и \fIпоследний\fR являются соответствующими
+индексами указывающими диапазон элементов для замены.
+Первый элемент списка имеет индекс 0, последний элемент может быть
+указан как \fBend\fR. Если \fIсписок\fR пуст, то аргументы
+\fIпервый\fR и \fIпоследний\fR игнорируются.
+Если индекс \fIпервый\fR меньше нуля, то считается, что он указывает
+на первый элемент списка. Для не пустых списков элемент, указанный
+индексом \fIпервый\fR должен существовать.
+'\" Не уверен, кто корректно перевёл. FIXME
+'\" If \fIfirst\fR is less than zero, it is considered to refer to the
+'\" first element of the list.  For non-empty lists, the element indicated
+'\" by \fIfirst\fR must exist.
+Если индекс \fIпоследний\fR меньше нуля, но больше чем \fIпервый\fR,
+то указанные элементы будут вставлены в начало списка. Если
+\fIпоследний\fR меньше \fIпервого\fR, то элементы удаляться не будут,
+новые элементы просто вставляются перед элементом с индексом \fIпервый\fR.
+Каждый добавляемый элемент становиться отдельным элементом списка.
+Если элементы для замены не указаны, то элементы списка с индексами в
+диапазоне \fIпервый\fR .. \fIпоследний\fR будут просто удалены. Если
+\fIсписок\fR пуст, то элементы, указанные в аргументах команды
+\fBlreplace\fR будут добавлены в конец списка.
+
+.SH "SEE ALSO"
+.VS 8.4
+list(n), lappend(n), lindex(n), linsert(n), llength(n), lsearch(n), 
+lset(n), lrange(n), lsort(n)
+.VE
+
+.SH KEYWORDS
+элемент, список, заменить, element, list, replace

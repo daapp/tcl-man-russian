@@ -1,0 +1,55 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: list.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH list n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+list \- Создаёт список
+.SH SYNOPSIS
+\fBlist \fR?\fIаргумент аргумент ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда создаёт список, включающие в себя все \fIаргумент\fRы, или
+пустой список, если аргументы не указаны.
+Фигурные скобки и обратные слэши добавляются при необходимости, таким образом,
+что команда \fBlindex\fR сможет восстановить исходные аргументы, а
+команда \fBeval\fR может использоваться для выполнения полученного
+списка, при этом первый элемент рассматривается как имя команды, а
+остальные элементы - как аргументы этой команды.
+Результат команды \fBlist\fR слегка отличается от результата команды
+\fBconcat\fR: \fBconcat\fR удаляет один уровень группировки перед
+созданием списка, тогда как \fBlist\fR работает непосредственно с
+оригинальными аргументами. Например команда
+.CS
+\fBlist a b {c d e} {f {g h}}\fR
+.CE
+возвращает
+.CS
+\fBa b {c d e} {f {g h}}\fR
+.CE
+Тогда как \fBconcat\fR с теми же аргументами вернёт
+.CS
+\fBa b c d e f {g h}\fR
+.CE
+
+.SH "SEE ALSO"
+lappend(n), lindex(n), linsert(n), llength(n), lsearch(n), 
+.VS 8.4
+lset(n),
+.VE
+lsort(n),
+lrange(n), lreplace(n)
+
+.SH KEYWORDS
+элемент, список, element, list

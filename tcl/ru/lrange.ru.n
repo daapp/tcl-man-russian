@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\" Copyright (c) 2001 Kevin B. Kenny.  All rights reserved.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: lrange.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH lrange n 7.4 Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+lrange \- Возвращает один или несколько смежных элементов списка
+.SH SYNOPSIS
+\fBlrange \fIсписок первый последний\fR
+.BE
+
+.SH DESCRIPTION
+.PP
+\fIСписок\fR должен быть правильным Tcl списком. Эта команда возвращает
+новый список, состоящий из элементов с индексами в диапазоне
+\fIпервый\fR .. \fIпоследний\fR включительно.
+Для обозначения последнего элемента списка в аргументах \fIпервый\fR и
+\fIпоследний\fR можно использовать значение \fBend\fR.
+Если индекс \fIпервый\fR меньше нулю, то он считается равным нулю.
+Если индекс \fIпоследний\fR больше или равен количеству элементов в
+списке, то он считается равным \fBend\fR.
+Если индекс \fIпервый\fR больше, чем индекс \fIпоследний\fR, то
+возвращается пустая строка.
+
+Примечание: ``\fBlrange \fIсписок первый первый\fR'' не всегда
+возвращает такой же результат, как ``\fBlindex \fIсписок первый\fR''
+(хотя результат обычно одинаков для простых элементов, не заключённых
+в фигурные скобки), но всегда возвращает то же значение, что и команда
+``\fBlist [lindex \fIсписок первый\fB]\fR''
+
+.SH "SEE ALSO"
+.VS 8.4
+list(n), lappend(n), lindex(n), linsert(n), llength(n), lsearch(n), 
+lset(n), lreplace(n), lsort(n)
+.VE
+
+.SH KEYWORDS
+элемент, список, диапазон, вложенный список, element, list, range, sublist

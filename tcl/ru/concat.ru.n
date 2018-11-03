@@ -1,0 +1,50 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: concat.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH concat n 8.3 Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+concat \- Объединяет списки в один список
+.SH SYNOPSIS
+\fBconcat\fI \fR?\fIарг арг ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда объединяет все свои аргументы в один список через
+пробел. При этом начальные и конечные пробелы в \fIарг\fR удаляются.
+Если все аргументы являются списками, то команда объединяет их в один список.
+Команда принимает любое количество аргументов.
+Например, команда
+.CS
+\fBconcat a b {c d e} {f {g h}}\fR
+.CE
+вернёт
+.CS
+\fBa b c d e f {g h}\fR
+.CE
+в качестве результата, а команда
+.CS
+\fBconcat " a b {c   " d "  e} f"\fR
+.CE
+вернёт
+.CS
+\fBa b {c d e} f\fR
+.CE
+в  качестве результата.
+.PP
+Если аргументы не заданы, то команда возвращает пустую строку.
+
+.SH "SEE ALSO"
+append(n), eval(n)
+
+.SH KEYWORDS
+связывать, объединять, списки, concatenate, join, lists

@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: time.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH time n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+time \- Вычисляет время выполнения скрипта
+.SH SYNOPSIS
+\fBtime \fIскрипт\fR ?\fIколичество\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда вызывает интерпретатор Tcl указанное \fIколичество\fR раз
+для выполнения скрипта или один раз, если \fIколичество\fR не указано.
+Команда возвращает строку вида
+.CS
+\fB503 microseconds per iteration\fR
+.CE
+в которой указано среднее время в микросекундах, затрачиваемое на
+выполнение скрипта.
+Вычисляется прошедшее время, а не время работы процессора.
+
+.SH "SEE ALSO"
+clock(n)
+
+.SH KEYWORDS
+скрипт, время, script, time

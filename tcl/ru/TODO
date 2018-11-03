@@ -1,0 +1,69 @@
+$Id: TODO,v 1.5 2005/11/03 20:51:05 alex Exp $
+
+Выяснить, как переводится bucket  исправить array.n .
+
+В bgerror.n не переведено одно предложение.
+
+В encoding.ru.n  не переведено одно предложение.
+
+Не уверен, что правильно перевел предложение в lsearch.
+На странице lsearch не указано, что опция -not может использоваться с
+-all и -inline. Сообщить upstream автору.
+
+На странице close.ru.n не могу подобрать подходящий термин для ключевого слова
+nonblocking.
+
+На странице binary.n ошибка, сообщить upstream автору.
+Предложение
+  The resulting binary string contains the four numbers 10, 2.0, 3.0 and 0.1.
+должно быть написано так
+  The resulting binary string contains the four numbers 1.0, 2.0, 3.0 and 0.1.
+
+binary.n:
+  Предложение как мне кажется не соответствует примеру:
+  "The resulting bytes are emitted in first to last order with the bits
+  being formatted in low-to-high order within each byte." и 
+  "\fBbinary format b5b* 11100 111000011010\fR
+  .CE
+  will return a string equivalent to \fB\\x07\\x87\\x05\fR."
+
+binary.n
+  слово cursor повторяется два раза подряд.
+
+upvar.n
+  set originalVar 1
+  trace variable originalVar w traceproc
+  setByUpvar originalVar 2
+  }
+  ^ лишняя закрывающая скобка, проверить для 8.4.4 и написать bug
+  report.
+  Как переводить слово frame? Как уровень или кадр, речь идет о стеке.
+
+uplevel.n
+  Строка содержит ссылку не несуществующий параметр \fIcommand\fR.
+  defaulted if the first \fIcommand\fR argument starts with a digit or
+  \fB#\fR.
+
+update.n
+  В списке ключевых слов не переведены flush и handler. Не могу
+  подобрать подходящий эквивалент.
+
+tclvars.n
+  для переменной env написано что для платформы Macintosh этот массив
+  создается самим интерпретатором Tcl, а как обстоит дело на MacOS X?
+  строку
+  On the Macintosh, the environment variable is constructed by Tcl as
+  наверно надо исправить на 
+  On the Macintosh, the environment variables is constructed by Tcl as
+  .
+  to hold the network file name for that application's library
+  directory.
+  Почему network?
+  tcl_rcFileName описано крайне непонятно для тех кто не знает что tcl
+  как shell можно встроить в проложение, да и перевод неудачный
+  получился.
+
+trace.n
+  опция delete для add command - если ообработчик определен в другом
+  интерпретаторе, то будет ли он запущен для обработки удаления
+  команды при удалении интерпретатора?

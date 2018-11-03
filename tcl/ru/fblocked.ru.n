@@ -1,0 +1,42 @@
+'\" 
+'\" Copyright (c) 1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\"
+'\" RCS: @(#) $Id: fblocked.ru.n,v 1.1 2004/03/01 20:11:59 alex Exp $
+.so man.macros
+.TH fblocked n 7.5 Tcl "Tcl Built-In Commands"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+fblocked \- Проверяет, исчерпала ли предыдущая операция ввода всю доступную информацию
+.SH SYNOPSIS
+\fBfblocked \fIидентификаторКанала\fR
+.BE
+
+.SH DESCRIPTION
+.PP
+Команда \fBfblocked\fR возвращает 1, если последняя операция чтения
+данных из канала, указанного с помощью аргумента
+\fIидентификаторКанала\fR, возвратила меньше данных, чем требовалось,
+так как все доступные данные были исчерпаны.  Например, если команда
+\fBgets\fR была вызвана, когда для чтения были доступны только три
+символа и отсутствовала последовательность, обозначающая конец строки,
+то \fBgets\fR возвратит пустую строку, а последующий вызов
+\fBfblocked\fR возвратит 1.
+.PP
+.VS
+Аргумент \fiидентификаторКанала\fR должен быть идентификатором
+открытого канала, таким как, например, стандартный Tcl канал
+(\fBstdin\fR, \fBstdout\fR или \fBstderr\fR), значением, полученным в
+результате вызова команд \fBopen\fR или \fBsocket\fR, или результатом
+вызова команды расширения Tcl, создающей канал.
+.VE
+
+.SH "SEE ALSO"
+gets(n), open(n), read(n), Tcl_StandardChannels(3)
+
+.SH KEYWORDS
+блокирующий, неблокирующий,
+blocking, nonblocking

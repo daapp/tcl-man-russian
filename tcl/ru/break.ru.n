@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1993-1994 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: break.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH break n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+break \- Прерывает выполнение цикла
+.SH SYNOPSIS
+\fBbreak\fR
+.BE
+
+.SH DESCRIPTION
+.PP
+Эта команда обычно вызывается из тела цикла, например, \fBfor\fR,
+\fBforeach\fR, \fBwhile\fR. Команда возвращает код TCL_BREAK, 
+уведомляющий об исключительной ситуации.
+Исключение означает, что ближайшая команда цикла в текущем скрипте
+будет прервана и выполнение продолжится со следующей за циклом команды.
+Break также обрабатывается в некоторых других ситуациях, например в
+команде \fBcatch\fR, обработчиках событий Tk и the outermost
+scripts of procedure bodies.
+
+.SH "SEE ALSO"
+catch(n), continue(n), for(n), foreach(n), while(n)
+
+.SH KEYWORDS
+завершить, прервать, цикл, abort, break, loop

@@ -1,0 +1,44 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: tell.ru.n,v 1.1 2004/06/05 10:26:49 alex Exp $
+'\" 
+.so man.macros
+.TH tell n 8.1 Tcl "Tcl Встроенные команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+tell \- Возвращает текущую позицию доступа открытого канала
+.SH SYNOPSIS
+\fBtell \fIидентификаторКанала\fR
+.BE
+
+.SH DESCRIPTION
+.PP
+.VS 8.1
+Возвращает строку, содержащую целое число, указывающее на текущую
+точку доступа заданного канала. Это значение возвращается как байтовое
+смещение, которое может передано команде \fIseek\fR для установки
+необходимой позиции в канале. Обратите внимание, что возвращаемое
+значение выражено в байтах, а не символах, как в команде \fBread\fR.
+.VE 8.1
+Для каналов не поддерживающих позиционирование возвращается значение -1.
+.PP
+.VS
+Аргумент \fIидентификаторКанала\fR должен быть идентификатором
+открытого канала, таким как, например, стандартные Tcl каналы
+(\fBstdin\fR, \fBstdout\fR или \fBstderr\fR), значение возвращённое
+вызовами команд \fBopen\fR или \fBsocket\fR, или результат команд
+создания каналов, предоставляемых Tcl расширениями.
+.VE
+
+.SH "SEE ALSO"
+file(n), open(n), close(n), gets(n), seek(n), Tcl_StandardChannels(3)
+
+.SH KEYWORDS
+позиция доступа, канал, позиционирование,
+access position, channel, seeking

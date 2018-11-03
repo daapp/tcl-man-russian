@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: eval.ru.n,v 1.1 2004/02/28 23:35:38 alex Exp $
+'\" 
+.so man.macros
+.TH eval n "" Tcl "Tcl Built-In Commands"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+eval \- Выполняет Tcl скрипт
+.SH SYNOPSIS
+\fBeval \fIарг \fR?\fIарг ...\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+\fBEval\fR берёт один или более аргументов, которые вместе являются
+Tcl скриптом, содержащим одну или более команд. 
+\fBEval\fR объединяет все свои аргументы таким же образом, как это
+делает команда \fBconcat\fR, рекурсивно передаёт объединённую строку
+Tcl интерпретатору и возвращает результат выполнения скрипта (или любую
+ошибку, полученную в результате работы скрипта) 
+Заметьте, что команда \fIlist\fR обрабатывает последовательность слов
+таким образом, что она более не обрабатывается командой \fBeval\fR.
+
+.SH KEYWORDS
+связывать, выполнять, скрипт,
+concatenate, evaluate, script
+
+.SH "SEE ALSO"
+catch(n), concat(n), error(n), list(n), subst(n), tclvars(n)

@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1993 The Regents of the University of California.
+'\" Copyright (c) 1994-1996 Sun Microsystems, Inc.
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\" 
+'\" RCS: @(#) $Id: if.ru.n,v 1.1.1.1 2003/10/16 19:01:11 alex Exp $
+'\" 
+.so man.macros
+.TH if n "" Tcl "Tcl Встроенные Команды"
+.BS
+'\" Note:  do not modify the .SH NAME line immediately below!
+.SH NAME
+if \- Выполняет скрипт согласно условиям
+.SH SYNOPSIS
+\fBif \fIвыражение1 \fR?\fBthen\fR? \fIскрипт1 \fBelseif \fIвыражение2 \fR?\fBthen\fR? \fIскрипт2\fR \fBelseif\fR ... ?\fBelse\fR? ?\fIскриптN\fR?
+.BE
+
+.SH DESCRIPTION
+.PP
+Команда \fIif\fR вычисляет значения выражения \fIвыражение1\fR (так
+же, как это делает команда \fBexpr\fR со своими аргументами). Значение
+выражения должно быть булевого типа (число 0 означает ложь, любое
+другое значение - истина или строковые значения, такие как \fBtrue\fR
+или \fByes\fR означают истина, а \fBfalse\fR или \fBno\fR означают
+ложь). Если значение выражения истинно, то выполняется \fIскрипт1\fR
+путём передачи его интерпретатору Tcl. Иначе вычисляется значение
+\fIвыражение2\fR, и если оно истинно, то выполняется \fIскрипт2\fR и
+т.д.  Если не одно из выражений при вычислении не дало истинного
+значения, то выполняется \fBскриптN\fR. Аргументы \fBthen\fR и
+\fBelse\fR необязательны и используются только для улучшения понимания
+кода программы. Предложение \fBelseif\fR может встречаться нуль или
+более раз. \fIСкриптN\fR также может быть не указан, если отсутствует \fBelse\fR.
+Значение, возвращаемое командой, является результатом работы одного из
+скриптов \fBскрипт1\fR .. \fBскриптN\fR или пустой строкой, если ни
+один из них не был выполнен.
+
+.SH "SEE ALSO"
+expr(n), for(n), foreach(n)
+
+.SH KEYWORDS
+булевый, условный, иначе, ложь, если, истина, boolean, conditional, else, false, if, true
